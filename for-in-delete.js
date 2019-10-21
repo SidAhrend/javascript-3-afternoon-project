@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -11,25 +10,25 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  console.log(key)
+}
 
 
 
@@ -40,11 +39,11 @@
 */
 
 function showValues( obj ) {
-  var string = ''
-  for (let key in obj) {
-    string += obj[key] 
-  } 
-  return string;
+  let count = '';
+  for(let key in obj){
+    count += obj[key];
+  }
+  return count;
 }
 
 
@@ -57,14 +56,15 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-function greaterThan10(obj) {
-  for(var key in obj){
-    if(obj[key]>10){
-      obj[key]=0;
-    }
+//Code Here
+function greaterThan10(obj){
+  for(let key in obj){
+    if(obj[key] > 10) obj[key] = 0;
   }
   return obj;
 }
+
+
 ////////// PROBLEM 3 //////////
 
 /*
@@ -73,14 +73,13 @@ function greaterThan10(obj) {
   Return the updated object.
 */
 
+//Code Here
 function double(obj){
-  for(var key in obj){
-    obj[key] = obj[key] * 2;
+  for(let key in obj){
+    obj[key] *= 2;
   }
   return obj;
 }
-
-
 
 
 ////////// PROBLEM 4 //////////
@@ -93,16 +92,15 @@ function double(obj){
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
+//Code Here
 function secrets(obj){
-  let emptystr = '';
+  variable = '';
   for(let key in obj){
-    if(key.startsWith('sh')){
-      emptystr += obj[key];
-    }
+    if(key.substring(0, 2) == 'sh')
+      variable += obj[key];
   }
-  return emptystr;
+  return variable;
 }
-
 
 
 /* 
@@ -133,7 +131,10 @@ function secrets(obj){
 */
 
 //Code Here
-
+function removePassword(obj){
+  delete obj.password;
+  return obj;
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -152,7 +153,9 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+for(let key in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[key] > 100) delete deleteTheBigNumbers[key];
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -165,7 +168,12 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK(obj){
+  for(let key in obj){
+    if(key.substring(0,1) === 'k') delete obj[key];
+  }
+  return obj;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -175,10 +183,13 @@ var deleteTheBigNumbers = {
   Write a for in loop that loops over this object. Each property will have a sentence as it's value.
   If the property value does not contain the word 'treasure', delete the property.
   Return the updated object.
-
   (hint: the method includes() may be of use...)
 */
 
 //Code Here
-
-
+function hiddenTreasure(obj){
+  for(let key in obj){
+    if(!obj[key].includes("treasure")) delete obj[key];
+  }
+  return obj;
+}

@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./nesting.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -50,17 +49,14 @@ var employees = [
     3. Return the updated employee array.
 */
 
-function employeeUpdater(){
+//Code Here
+function employeeUpdater() {
   for(let i = 0; i < employees.length; i++){
-    if (employees[i].firstName === "Theo"){
-      employees.splice(i,1)
-    } else {if (employees[i].firstName === "Lorie"){
-      employees[i].department = "HR"
-    }}
-   }
-   return employees;
-} 
-
+    if(employees[i].firstName === "Theo") employees.splice(i, 1);
+    else if(employees[i].firstName === "Lorie") employees[i].department = "HR";
+  }
+  return employees;
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -77,15 +73,18 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-function removeDuplicates (workplaceAccidents){
-  for(var i = 0; i < workplaceAccidents; i++){
-    for (var o = 0; o < workplaceAccidents; o++){
-      if (arr[i] === arr[o]){
-        workplaceAccidents.splice(arr[i], 1)
-    }}
+//Code Here
+function removeDuplicates(arr){
+  for(let i = 0; i < arr.length; i++){
+    for(let x = i + 1; x < arr.length; x++){
+      if(arr[i] === arr[x]){
+        arr.splice(x, 1);
+        x--;
+      }
+    }
   }
+  return arr;
 }
-console.log(removeDuplicates)
 
 
 ////////// PROBLEM 3 //////////
@@ -113,8 +112,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -155,7 +154,11 @@ var myCar = {
 */
 
 //Code Here
-
+function recordCleaner(){
+  myCar.accidents.forEach((item, index) => {
+    myCar.accidents[index].atFaultForAccident = false; 
+  });
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -174,5 +177,8 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-
-
+function looper(){
+  return numsArr.map(item => {
+    return item.map(item2 =>{ return item2 % 2 === 0 ? 'even' : 'odd';});
+  });
+}

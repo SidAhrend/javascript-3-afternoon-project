@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -21,8 +20,8 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-const {color, make, model, year} = carDetails;
-
+//Code Here
+let {color, make, model, year} = carDetails;
 
 
 ////////// PROBLEM 2 //////////
@@ -34,8 +33,8 @@ const {color, make, model, year} = carDetails;
 */
 
 function greeting( obj ) {
-  const {firstName, lastName, title} = obj;
-  
+  //Code Here
+  let {firstName, lastName, title} = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,7 +53,9 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function totalPopulation({utah, california, texas, arizona}){
+  return utah + california + texas + arizona;
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -68,7 +69,11 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function ingredients(obj){
+  let {carb, fat, protein} = obj;
+  let arr = [carb, fat, protein];
+  return arr;
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -79,14 +84,17 @@ function greeting( obj ) {
     function example( {one, two, three} ) {
       return one + two + three
     }
-
   Write a function called largeNumbers that will take a destructured object as it's parameter.
   The object properties will be named first, second, and third and their values will be numbers.
   Find the smallest number of the three and return that number.
 */
 
 //Code Here
-
+function largeNumbers({first, second, third}){
+  if(first < second && first < third) return first;
+  else if(second < first && second < third) return second;
+  else return third;
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -98,5 +106,8 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+function numberGroups({a, b, c}){
+  if(a.length > b.length && a.length > c.length) return a;
+  else if(b.length > a.length && b.length > c.length) return b;
+  else return c;
+}
